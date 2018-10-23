@@ -1,0 +1,247 @@
+html {
+    font-family: Lucida Sans Unicode, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    background-color: white;
+    border: 1px solid #535353;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: border, color, background-color 150ms linear;
+}
+
+button:hover {
+    background-color: #535353;
+    color: white;
+}
+
+.color-picker {
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2em;
+    border: 3px solid black;
+    transition: all 0.2s ease;
+}
+
+.color-picker:hover {
+    border: 3px solid #535353;
+}
+
+.color-picker input[type=color] {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.color-picker input[type=color]::-moz-color-swatch {
+    border: none;
+}    
+
+.center {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.header > h1 {
+    margin: 0;
+}
+
+.state-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+button:active {
+    background-color: #969696;
+    border: 1px solid #969696;
+}
+
+.lamp-state-button {
+    padding: 0.5em 1em;
+    font-size: 14pt;
+    min-width: 4em;
+}
+
+.lamp-state-button.on::after {
+    content: "ON";
+}
+
+.lamp-state-button.off::after {
+    content: "OFF";
+}
+
+.mode-wrapper {
+    display: grid;
+    grid-gap: 1em;
+}
+
+.mode-wrapper > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1em;
+    align-items: center;
+    font-size: 14pt;
+    color: #4b4b4b;
+}
+
+.mode-wrapper > h3 {
+    margin: 0;
+}
+
+.mode-wrapper > div > * {
+    margin: 0;
+}
+
+.content {
+    max-width: 50em;
+    margin: 0 auto;
+}
+
+.content > input {
+    display: none;
+}
+
+.tabs {
+    padding: 0;
+    font-size: 14pt;
+    display: flex;
+    justify-content: center;
+}
+
+.tabs > label {
+    list-style-type: none;
+    display: inline;
+    text-transform: uppercase;
+    padding: 0 0.5em;
+    color: #6f6f6f;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.tabs > label:hover {
+    color: #484848;
+}
+
+#tab-common:not(:checked) ~ .tabs-content .tab-common,
+#tab-animation-config:not(:checked) ~ .tabs-content .tab-animation-config,
+#tab-settings:not(:checked) ~ .tabs-content .tab-settings {
+    display: none;
+}
+#tab-common:checked ~ .tabs label[for="tab-common"],
+#tab-animation-config:checked ~ .tabs label[for="tab-animation-config"],
+#tab-settings:checked ~ .tabs label[for="tab-settings"] {
+    color: black;
+}
+
+/* Custom radio */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: black;
+}
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #515151;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* Custom radio end */
+
+/* Custom select */
+select {
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: right 10px top 11px;
+    background-size: 16px 16px;
+    color: black;
+    padding: 0.3em 2em 0.3em 0.3em;
+    width: auto;
+    font-size: 14pt;
+	-moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0px;
+    outline: 0;
+    border: 1px solid black;
+    transition: 0.3s ease all;
+    text-overflow: '';
+}
+  
+select::-ms-expand {
+    display: none;
+}
+  
+select:focus,
+select:active {
+    outline: 0;
+}
+  
+option:focus {
+    background: pink;
+}
+/* Custom select end */

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>LED Lamp</title>
+        <script src="app.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div class="header">
+        <h1>
+            LED Lamp
+        </h1>
+        <div class="state-button-wrapper">
+            <button id="tsb"
+                    class="lamp-state-button on"
+                    onclick="toggleLampState(this)">
+            </button>
+        </div>
+    </div>
+        <div class="content">
+            <input type="radio" name="tabs" id="tab-common" checked />
+            <input type="radio" name="tabs" id="tab-animation-config" />
+            <input type="radio" name="tabs" id="tab-settings" />
+
+            <div class="tabs">
+                <label for="tab-common">Common</label>
+                <label for="tab-animation-config">Animation</label>
+                <label for="tab-settings">Settings</label>
+            </div>
+            <div class="tabs-content">
+                <div class="tab-common mode-wrapper">
+                    <h3>Mode:</h3>
+                    <div>
+                        <p>
+                            <input name="mode" type="radio" id="mode-single-color" />
+                            <label for="mode-single-color">Single color</label>
+                        </p>
+                        <div class="color-picker">
+                            <input type="color" oninput="updateSingleColor(this)" />
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            <input name="mode" type="radio" id="mode-animation" />
+                            <label for="mode-animation">Animation</label>
+                        </p>
+                        <select>
+                            <option>Animation 1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tab-animation-config">
+
+                </div>
+                <div class="tab-settings">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
