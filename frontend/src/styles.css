@@ -21,6 +21,9 @@ button {
     cursor: pointer;
     border-radius: 5px;
     transition: border, color, background-color 150ms linear;
+    text-transform: uppercase;
+    font-size: 14pt;
+    padding: 0.5em;
 }
 
 button:hover {
@@ -118,7 +121,7 @@ button:active {
 }
 
 .content {
-    max-width: 50em;
+    max-width: 25em;
     margin: 0 auto;
 }
 
@@ -145,6 +148,10 @@ button:active {
 
 .tabs > label:hover {
     color: #484848;
+}
+
+.tabs-content > * > *:first-child {
+    margin-top: 1em;
 }
 
 #tab-common:not(:checked) ~ .tabs-content .tab-common,
@@ -230,6 +237,7 @@ select {
     border: 1px solid black;
     transition: 0.3s ease all;
     text-overflow: '';
+    cursor: pointer;
 }
   
 select::-ms-expand {
@@ -240,8 +248,112 @@ select:focus,
 select:active {
     outline: 0;
 }
-  
+
 option:focus {
     background: pink;
 }
+
 /* Custom select end */
+
+/* Custom range start */
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+  
+input[type=range]::-webkit-slider-thumb {
+    border: 1px solid #535353;
+    height: 2em;
+    width: 1em;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: border, color, background-color 150ms linear;
+    -webkit-appearance: none;
+    margin-top: -0.5em;
+  }
+
+input[type=range]::-webkit-slider-thumb:hover {
+    background-color: #535353;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1em;
+    cursor: pointer;
+    animation: 0.2s;
+    background: white;
+    border: 1px solid #535353;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 1em;
+    cursor: pointer;
+    animation: 0.2s;
+    background: white;
+    border: 1px solid #535353;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #535353;
+    height: 2em;
+    width: 1em;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: border, color, background-color 150ms linear;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    background-color: #535353;
+}
+  
+/* Custom range end */
+
+.tab-animation-config > .select-box-wrapper,
+.tab-animation-config > .select-box-wrapper > select {
+    width: 100%;
+}
+
+.animation-config-wrapper > * {
+    display: none;
+}
+
+.animation-config-wrapper > *.selected {
+    display: block;
+}
+
+.animation-config-wrapper > * > div > p {
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.animation-config-wrapper > .waves-wrapper > .color-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+}
+
+.animation-config-wrapper > .waves-wrapper > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.animation-config-wrapper > .waves-wrapper > div > * {
+    margin-right: 1em;
+}
+
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 1em;
+    width: calc(100% - 8px);
+}

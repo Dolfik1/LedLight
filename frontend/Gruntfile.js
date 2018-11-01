@@ -1,52 +1,50 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-        smoosher: {
-            options: {
-              jsTags: {
-                start: '<script type="text/javascript">',
-                end: "</script>"
-              },
-            },
-            all: {
-              files: {
-                "dist/index.html": "src/index.html",
-              },
-            },
-        },
         htmlmin: {
-            main: {
-              options: {
-                removeComments: true,
-                collapseWhitespace: true,
-                minifyJS: {
-                    compress: {
-                        sequences: true,
-                        dead_code: true,
-                        conditionals: true,
-                        booleans: true,
-                        unused: true,
-                        if_return: true,
-                        join_vars: true,
-                        drop_console: true
-                      },
-                      mangle: {
-                        except: ['$super', '$', 'exports', 'require']
-                      },
-                      output: {
-                        comments: false
-                    } 
-                },
-                minifyCSS: true,
-                processScripts: [ "text/javascript" ]
-              },
-              files: {
-                "dist/index.html": "dist/index.html",
-              }
+          main: {
+            options: {
+              removeComments: true,
+              collapseWhitespace: true
+            },
+            files: {
+              "dist/index.html": "src/index.html"
             }
           }
+        },
+        cssmin: {
+          options: {
+            mergeIntoShorthands: false,
+            roundingPrecision: -1
+          },
+          target: {
+            files: {
+              "dist/styles.css": "src/styles.css"
+            }
+          }
+        },
+        uglify: {
+          main: {
+            files: {
+              "dist/app.js": "src/app.js"
+            }
+          }
+        },
+        compress: {
+          main: {
+            options: {
+              mode: "gzip"
+            },
+            expand: true,
+            cwd: "dist/",
+            src: ['**/*'],
+            dest: "dist/"
+          }
+        }
     });
 
-    grunt.loadNpmTasks("grunt-html-smoosher");
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
-    grunt.registerTask("default", ["smoosher", "htmlmin"]);
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks("grunt-contrib-compress");
+    grunt.registerTask("default", ["htmlmin", "cssmin", "uglify", "compress"]);
 }

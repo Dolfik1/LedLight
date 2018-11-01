@@ -46,18 +46,102 @@
                             <input name="mode" type="radio" id="mode-animation" />
                             <label for="mode-animation">Animation</label>
                         </p>
-                        <select>
-                            <option>Animation 1</option>
+                        <select onchange="modeChanged(this)">
+                            <option value="waves">Waves</option>
+                            <option value="rainbow">Rainbow</option>
+                            <option value="lines">Lines</option>
+                            <option value="snowflakes">Snowflakes</option>
+                            <option value="stroboscope">Stroboscope</option>
+                            <option value="intersections">Intersections</option>
+                            <option value="snake">Snake</option>
+                            <option value="pulse">Pulse</option>
+                            <option value="all">All</option>
                         </select>
                     </div>
                 </div>
                 <div class="tab-animation-config">
-
+                    <div class="select-box-wrapper">
+                        <select id="animation-config-select" onchange="animationConfigChanged(this)">
+                            <option value="waves">Waves</option>
+                            <option value="rainbow">Rainbow</option>
+                            <option value="lines">Lines</option>
+                            <option value="snowflakes">Snowflakes</option>
+                            <option value="stroboscope">Stroboscope</option>
+                            <option value="intersections">Intersections</option>
+                            <option value="snake">Snake</option>
+                            <option value="pulse">Pulse</option>
+                            <option value="all">All</option>
+                        </select>
+                    </div>
+                    <div class="animation-config-wrapper">
+                        <div id="tab-animation-waves" class="waves-wrapper selected">
+                            <div class="color-wrapper">
+                                <p>Max color:</p>
+                                <div class="color-picker">
+                                    <input type="color" oninput="updateWavesColor(this, true)" />
+                                </div>
+                                <button>Random</button>
+                                <div></div>
+                                <p>Min color:</p>
+                                <div class="color-picker">
+                                    <input type="color" oninput="updateWavesColor(this, false)" />
+                                </div>
+                                <button>Random</button>
+                                <div></div>
+                            </div>
+                            <div>
+                                <p>Speed 1:</p>
+                                <input type="range" step="1" value="0" min="-100" max="100" />
+                            </div>
+                            <div>
+                                <p>Speed 2:</p>
+                                <input type="range" step="1" value="0" min="-100" max="100" />
+                            </div>
+                            <div>
+                                <p>Speed 3:</p>
+                                <input type="range" step="1" value="0" min="-100" max="100" />
+                            </div>
+                        </div>
+                        <div id="tab-animation-rainbow">
+                            b
+                        </div>
+                        <div id="tab-animation-lines"></div>
+                        <div id="tab-animation-snowflakes"></div>
+                        <div id="tab-animation-stroboscope"></div>
+                        <div id="tab-animation-intersections"></div>
+                        <div id="tab-animation-snake"></div>
+                        <div id="tab-animation-pulse"></div>
+                        <div id="tab-animation-all"></div>
+                    </div>
                 </div>
                 <div class="tab-settings">
+                    <div class="field">
+                        <p>WiFi SSID:</p>
+                        <input type="text" />
+                    </div>
+                    <div class="field">
+                        <p>WiFi Password:</p>
+                        <input type="password" />
+                    </div>
                     
+                    <div class="field">
+                        <p>DHCP Address:</p>
+                        <input type="text" />
+                    </div>
+
+                    
+                    <div class="field">
+                        <p>Last IP address:</p>
+                        <p></p>
+                    </div>
+
+                    <button>Save</button>
+                    <button>Restart</button>
                 </div>
             </div>
+        </div>
+        <div class="footer">
+            N.M. 2018
         </div>
     </body>
 </html>

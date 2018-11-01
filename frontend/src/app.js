@@ -3,6 +3,8 @@ window.onload = function() {
         var result = JSON.parse(this.responseText);
         setLampState(result.state ? "on" : "off");
     });
+
+    animationConfigChanged(document.getElementById("animation-config-select"));
 };
 
 function toggleLampState(el) {
@@ -61,4 +63,15 @@ function makeRequest(type, address, onSuccess, data) {
     }
 
     req.send();
+}
+
+function animationConfigChanged(el) {
+    var configs = document.querySelectorAll(".animation-config-wrapper > *");
+    for (var i = 0; i < configs.length; i++) {
+        if (configs[i].id == "tab-animation-" + el.value) {
+            configs[i].classList.add("selected");
+        } else {
+            configs[i].classList.remove("selected");
+        }
+    }
 }
